@@ -1,0 +1,26 @@
+{
+  "name": "splashcss",
+  "version": "0.1.0",
+  "description": "A light-weight CSS framework to implement basic layout and a handful of components.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techbash/SplashCSS.git"
+  },
+  "keywords": [
+    "CSS",
+    "CSS Framework",
+    "UI Framework",
+    "Web UI",
+    "Web UI Framework"
+  ],
+  "author": "TechBash Foundation (https://www.techbashfoundation.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/techbash/SplashCSS/issues"
+  },
+  "homepage": "https://github.com/techbash/SplashCSS#readme"
+}
