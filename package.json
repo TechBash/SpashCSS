@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "description": "A light-weight CSS framework to implement basic layout and a handful of components.",
   "main": "index.js",
+  "otherDetails": {
+    "properName": "SplashCSS"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "scss": "node-sass --watch src -o css",
+    "start": "vite"
   },
   "repository": {
     "type": "git",
@@ -22,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/techbash/SplashCSS/issues"
   },
-  "homepage": "https://github.com/techbash/SplashCSS#readme"
+  "homepage": "https://github.com/techbash/SplashCSS#readme",
+  "dependencies": {
+    "sass": "^1.62.1",
+    "vite": "^4.3.8",
+    "vite-plugin-banner": "^0.7.0"
+  }
 }
