@@ -1,0 +1,26 @@
+@mixin color-theme($backgroundColor: $white, $color: $dark-blue-light, $headerColor: $dark-blue, $iconColor: $link-blue, $highlightColor: $link-blue) {
+    background-color: $backgroundColor;
+
+    h1, h2, h3, h4, h5, h6 { color: $headerColor; }
+    p, span, div { color: $color; }
+    .fa, .far, .fab, .fas { color: $iconColor; }
+    .highlight { 
+        background-color: $highlightColor; 
+
+        a, a:visited {
+            color: $iconColor;
+        }
+
+        a:hover {
+            color: darken($iconColor, 10%);
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .mobile-row .col-12 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @content;
+}
