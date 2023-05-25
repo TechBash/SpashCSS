@@ -1,0 +1,18 @@
+.container {
+    @include container;
+}
+  
+  .row {
+    @include row;
+  }
+  
+  .column {
+    @include column(1);
+  }
+
+  // create aliases for the entire grid
+  @for $i from 1 through $grid-columns {
+    .column-#{$i} {
+      @include column($i);
+    }
+  }
