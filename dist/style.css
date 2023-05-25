@@ -6,4 +6,4 @@
   Released under the MIT license.
 ********************************************** */
 
-body{font-size:12pt}
+.container{max-width:1200px;margin:0 auto;padding:0 10px}.row{display:flex;flex-wrap:wrap;margin-left:-10px;margin-right:-10px}.column,.column-1{flex:0 0 6.25%;padding:0 10px}.column-2{flex:0 0 12.5%;padding:0 10px}.column-3{flex:0 0 18.75%;padding:0 10px}.column-4{flex:0 0 25%;padding:0 10px}.column-5{flex:0 0 31.25%;padding:0 10px}.column-6{flex:0 0 37.5%;padding:0 10px}.column-7{flex:0 0 43.75%;padding:0 10px}.column-8{flex:0 0 50%;padding:0 10px}.column-9{flex:0 0 56.25%;padding:0 10px}.column-10{flex:0 0 62.5%;padding:0 10px}.column-11{flex:0 0 68.75%;padding:0 10px}.column-12{flex:0 0 75%;padding:0 10px}.column-13{flex:0 0 81.25%;padding:0 10px}.column-14{flex:0 0 87.5%;padding:0 10px}.column-15{flex:0 0 93.75%;padding:0 10px}.column-16{flex:0 0 100%;padding:0 10px}body{font-size:12pt}

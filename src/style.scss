@@ -1,9 +1,6 @@
-@use "variables/variables";
-@use "mixins/mixins";
-@use "structure/structure";
+@import "variables/variables";
 
-$base-font-size: 12pt;
+// Override variables here
 
-body {
-    font-size: $base-font-size;
-}
+@import "mixins/mixins";
+@import "structure/structure";
