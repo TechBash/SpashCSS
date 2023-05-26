@@ -12,7 +12,7 @@
 
   // create aliases for the entire grid
   @for $i from 1 through $grid-columns {
-    .column-#{$i} {
+    .col-#{$i} {
       @include column($i);
     }
   }
