@@ -4,3 +4,52 @@
 
 @import "mixins/mixins";
 @import "structure/structure";
+
+
+
+// Generate themes
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$link-blue: #5fb0e5;
+$white: #fff;
+$dark-blue: #121921;
+$pale-blue: #ecf5fe;
+$dark-blue-lightest: lighten($dark-blue, 70%);
+
+$colors: ($blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan, $link-blue, $white, $dark-blue, $pale-blue, $dark-blue-lightest);
+
+$i: 0;
+@each $c in $colors {
+    $theme: color-theme($c);
+    $i: $i + 1;
+
+    $i2: 0;
+    @each $l, $v in $theme {
+        $i2: $i2 + 1;
+        .cell-#{$i}-#{$i2} {
+            background-color: $v;
+            height: 50px;
+            display: inline-block;
+
+            &::before {
+                content: "#{$v} #{round(lightness($v))}";
+            }
+        }
+    }
+}
+
+$color2: #486484;
+$color1: #FF8400;
+
+.contrast-calculated::before {
+    contrast-ratio: "#{calculate-contrast($color1,$color2)}";
+}

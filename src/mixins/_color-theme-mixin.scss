@@ -1,4 +1,6 @@
-@mixin color-theme($backgroundColor: $white, $color: $dark-blue-light, $headerColor: $dark-blue, $iconColor: $link-blue, $highlightColor: $link-blue) {
+@use "sass:math";
+
+@mixin color-theme-old($backgroundColor: $white, $color: $dark-blue-light, $headerColor: $dark-blue, $iconColor: $link-blue, $highlightColor: $link-blue) {
     background-color: $backgroundColor;
 
     h1, h2, h3, h4, h5, h6 { color: $headerColor; }
@@ -23,4 +25,45 @@
     }
 
     @content;
+}
+
+@function color-theme($base-color) {
+    $theme: ();
+
+    // Generate shades
+    $theme: map-merge($theme, (
+        'base': $base-color,
+        'light': lighten($base-color, 15%),
+        'lighter': lighten($base-color, 30%),
+        'dark': darken($base-color, 15%),
+        'darker': darken($base-color, 30%)
+    ));
+
+    // Generate alternate colors
+    $theme: map-merge($theme, (
+        'complement': complement($base-color),
+        'invert': invert($base-color),
+        'left60': adjust-hue($base-color, -60),
+        'left120': adjust-hue($base-color, -120),
+        'right60': adjust-hue($base-color, 60),
+        'right120': adjust-hue($base-color, 120)
+    ));
+
+    @return $theme;
+}
+
+@function sRGBToLinear($colorValue) {
+    $colorValue: calc($colorValue / 255);
+    @if $colorValue <= 0.04045 {
+        @return calc($colorValue / 12.92);
+    } @else {
+        @return calc(math.pow($colorValue + 0.055, 2.4));
+    }
+}
+
+@function calculate-contrast($value1, $value2) {
+    $luminance1: (0.2126 * sRGBToLinear(red($value1))) + (0.7152 * sRGBToLinear(green($value1))) + (0.0722 * sRGBToLinear(blue($value1)));
+    $luminance2: (0.2126 * sRGBToLinear(red($value2))) + (0.7152 * sRGBToLinear(green($value2))) + (0.0722 * sRGBToLinear(blue($value2)));
+
+    @return calc((max($luminance1, $luminance2) + 0.05)/(min($luminance1, $luminance2) + 0.05));
 }

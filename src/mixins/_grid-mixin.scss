@@ -20,11 +20,11 @@
 
 @mixin column($columns: 1, $span: 1) {
   flex: 0 0 calc(100% / $grid-columns * $columns);
-  padding: 0 calc($grid-gutter / 2);
+  //padding: 0 calc($grid-gutter / 2);
 
   // Column span
   @if $span > 1 {
     flex-basis: calc(100% / $grid-columns * $span - #{$grid-gutter});
-    margin-right: $grid-gutter;
+    //margin-right: $grid-gutter;
   }
 }
