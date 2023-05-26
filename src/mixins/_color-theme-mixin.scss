@@ -67,3 +67,54 @@
 
     @return calc((max($luminance1, $luminance2) + 0.05)/(min($luminance1, $luminance2) + 0.05));
 }
+
+@function find-safe-color($color, $ratio: 4.5) {
+    $lightness: lightness($color);
+    $value: $color;
+    $contrast: 0.0;
+
+    @if $lightness < 50 {
+        $value: lighten($value, 5%);
+        $contrast: calculate-contrast($color,$value);
+
+        @while $contrast < $ratio {
+            $value: lighten($value, 5%);
+            $contrast: calculate-contrast($color,$value);
+        }
+    } @else {
+        $value: darken($value, 5%);
+        $contrast: calculate-contrast($color,$value);
+
+        @while $contrast < $ratio {
+            $value: darken($value, 5%);
+            $contrast: calculate-contrast($color,$value);
+        }
+    }
+
+    @return ($value, $contrast);
+}
+
+@function wcag-safe-colors($base-color) {
+    $colors: ();
+
+    $wcag30: find-safe-color($base-color, 3.0);
+    $wcag45: find-safe-color($base-color);
+    $wcag70: find-safe-color($base-color, 7.0);
+
+    // Generate shades
+    $colors: map-merge($colors, (
+        'base-color': $base-color,
+        'wcag20-aa-normal-color': nth($wcag45, 1),
+        'wcag20-aa-normal-ratio': nth($wcag45, 2),
+        'wcag20-aa-large-color': nth($wcag30, 1),
+        'wcag20-aa-large-ratio': nth($wcag30, 2),
+        'wcag21-aa-input-color': nth($wcag30, 1),
+        'wcag21-aa-input-ratio': nth($wcag30, 1),
+        'wcag21-aaa-normal-color': nth($wcag70, 1),
+        'wcag21-aaa-normal-ratio': nth($wcag70, 2),
+        'wcag21-aaa-large-color': nth($wcag45, 1),
+        'wcag21-aaa-large-ratio': nth($wcag45, 2)
+    ));
+
+    @return $colors;
+}

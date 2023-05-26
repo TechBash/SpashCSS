@@ -47,9 +47,22 @@ $i: 0;
     }
 }
 
-$color2: #486484;
-$color1: #FF8400;
+$color2: #5fb0e5;
+$color1: #0D3651;
 
-.contrast-calculated::before {
-    contrast-ratio: "#{calculate-contrast($color1,$color2)}";
+
+$base-color: #5fb0e5;
+$colors: wcag-safe-colors($base-color);
+
+.wcag-safe-base-colors {
+    background-color: $color2;
+    color: map-get($colors, 'wcag21-aaa-normal-color');
+    font-size: 12pt;
 }
+
+
+
+// contrast-ratio: "#{calculate-contrast($color1,$color2)}";
+// $backgroundColor: $link-blue;  #5fb0e5
+// $color: $dark-blue;  #121921
+// $headerColor: $dark-blue;
