@@ -50,12 +50,23 @@ $i: 0;
 $color2: #5fb0e5;
 $color1: #0D3651;
 
+$color3: #fff;
+$color4: #595959;
 
-$base-color: #5fb0e5;
+$color5: #121921;
+$color6: #8ca4c0;
+
+$color7: #ecf5fe;
+$color8: #084f97;
+
+$color9: #6f42c1;
+
+
+$base-color: $color9;
 $colors: wcag-safe-colors($base-color);
 
 .wcag-safe-base-colors {
-    background-color: $color2;
+    background-color: $base-color;
     color: map-get($colors, 'wcag21-aaa-normal-color');
     font-size: 12pt;
 }
