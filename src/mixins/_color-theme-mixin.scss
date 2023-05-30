@@ -72,23 +72,32 @@
     $lightness: lightness($color);
     $value: $color;
     $contrast: 0.0;
+    $i: 0;
 
     @if $lightness < 50 {
         $value: lighten($value, 5%);
         $contrast: calculate-contrast($color,$value);
+        $i: $i + 1;
 
-        @while $contrast < $ratio {
+        @while $contrast < $ratio and $i < 20 {
             $value: lighten($value, 5%);
             $contrast: calculate-contrast($color,$value);
+            $i: $i + 1;
         }
     } @else {
         $value: darken($value, 5%);
         $contrast: calculate-contrast($color,$value);
+        $i: $i + 1;
 
-        @while $contrast < $ratio {
+        @while $contrast < $ratio and $i < 20 {
             $value: darken($value, 5%);
             $contrast: calculate-contrast($color,$value);
+            $i: $i + 1;
         }
+    }
+
+    @if $i >= 20 {
+        @debug "Color not safe";
     }
 
     @return ($value, $contrast);
