@@ -27,7 +27,7 @@
     @content;
 }
 
-@function color-theme($base-color) {
+@function color-wheel($base-color) {
     $theme: ();
 
     // Generate shades
