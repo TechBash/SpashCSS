@@ -97,7 +97,7 @@
     }
 
     @if $i >= 20 {
-        @debug "Color not safe";
+        @debug "Color (" + $color +  ") not safe";
     }
 
     @return ($value, $contrast);
