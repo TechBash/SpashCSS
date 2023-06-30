@@ -129,6 +129,8 @@ $base-color: #f2f2f2;
 $wcag45: find-safe-color($base-color);
 ```
 
+NOTE: On SASS compilation, if you are passing in a color value and the function cannot find a complementary color that meets the ratio you are trying to obtain, you will see a console message like: `Color (#ccc) not safe`. If this is the case, we recommend changing the ratio or changing the input color. If building using a CI pipeline, you may need to check the CI logs.
+
 #### `wcag-safe-colors` Function
 The `wcag-safe-colors` function takes a single, base color parameter. From that base color, the function will find appropriate WCAG safe colors based on WCAG 2.0 and WCAG 2.1. In addition to learning more about the ratios, you can learn more about the WCAG rules by visiting the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) page. For example, if following WCAG Level AAA, the normal text ratio should be at least 7:1. You can find that color by grabbing the return value `wcag21-aaa-normal-color`.
 
