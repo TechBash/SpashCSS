@@ -23,6 +23,7 @@ export default defineConfig({
       name: `${packageJson.otherDetails.properName}`,
       fileName: () => `${packageJson.name}.js`,
     },
+    outDir: 'demo',
     rollupOptions: {
       output: {
         assetFileNames: "demo.[ext]",
