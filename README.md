@@ -45,7 +45,7 @@ The demo page is already pre-built. The purpose of this page is to highlight sev
 
 To re-build the demo site including the CSS and JavaScript, run the following command in the root:
 
-```
+```ps
 npm run buildDemo
 ```
 
@@ -54,13 +54,13 @@ As with the demo, the distributables are already pre-built. These files are the 
 
 To re-build the distributables including the CSS and JavaScript, run the following command in the root:
 
-```
+```ps
 npm run build
 ```
 
 ### Using SplashCSS Functions and Mixins
 
-#### color-wheel
+#### `color-wheel` Function
 The `color-wheel` function is found in the `_color-mixin.scss` file. It will take a base color and infer 10 other colors based on the base color including:
 
 * light - 15% lighter base color
