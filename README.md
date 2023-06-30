@@ -35,10 +35,10 @@
                                   WWNNNXXXXNNNNWWW                                  
                                                                                 
 
-## Welcome to SplashCSS
+# Welcome to SplashCSS
 We're still in pre-pre-release phase. Check back again soon or feel free to submit feedback.
 
-### Building SplashCSS
+## Building SplashCSS
 
 #### Building the Demo
 The demo page is already pre-built. The purpose of this page is to highlight several of the features of SplashCSS. You can browse the demo page by visiting the `index.html` file in the root. The .css and .js files it accesses are the files contained in the `/demo` folder.
@@ -58,7 +58,7 @@ To re-build the distributables including the CSS and JavaScript, run the followi
 npm run build
 ```
 
-### Using SplashCSS Functions and Mixins
+## Using SplashCSS Functions and Mixins
 
 #### `color-wheel` Function
 The `color-wheel` function is found in the `_color-mixin.scss` file. It will take a base color and infer 10 other colors based on the base color including:

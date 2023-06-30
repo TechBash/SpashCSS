@@ -12,13 +12,7 @@ $green:   #28a745 !default;
 $teal:    #20c997 !default;
 $cyan:    #17a2b8 !default;
 
-$link-blue: #5fb0e5;
-$white: #fff;
-$dark-blue: #121921;
-$pale-blue: #ecf5fe;
-$dark-blue-lightest: lighten($dark-blue, 70%);
-
-$colors: ($blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan, $link-blue, $white, $dark-blue, $pale-blue, $dark-blue-lightest);
+$colors: ($blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan);
 
 $i: 0;
 @each $c in $colors {
@@ -28,14 +22,13 @@ $i: 0;
     $i2: 0;
     @each $l, $v in $theme {
         $i2: $i2 + 1;
-        .cell-#{$i}-#{$i2} {
+        .color-wheel-#{$i}-#{$i2} {
             background-color: $v;
             height: 50px;
             display: inline-block;
 
             &::before {
-                content: "#{calculate-contrast($c,$v)}";
-                //content: "#{$v} #{round(lightness($v))}";
+                content: "#{$v}";
             }
         }
     }
