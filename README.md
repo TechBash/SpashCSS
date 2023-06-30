@@ -37,3 +37,23 @@
 
 ## Welcome to SplashCSS
 We're still in pre-pre-release phase. Check back again soon or feel free to submit feedback.
+
+### Building SplashCSS
+
+#### Building the Demo
+The demo page is already pre-built. The purpose of this page is to highlight several of the features of SplashCSS. You can browse the demo page by visiting the `index.html` file in the root. The .css and .js files it accesses are the files contained in the `/demo` folder.
+
+To re-build the demo site including the CSS and JavaScript, run the following command in the root:
+
+```
+npm run buildDemo
+```
+
+#### Building the Distributables 
+As with the demo, the distributables are already pre-built. These files are the files you'd want to reference in your application. They can be found in the `/dist` folder. 
+
+To re-build the distributables including the CSS and JavaScript, run the following command in the root:
+
+```
+npm run build
+```
