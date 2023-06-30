@@ -57,3 +57,53 @@ To re-build the distributables including the CSS and JavaScript, run the followi
 ```
 npm run build
 ```
+
+### Using SplashCSS Functions and Mixins
+
+#### color-wheel
+The `color-wheel` function is found in the `_color-mixin.scss` file. It will take a base color and infer 10 other colors based on the base color including:
+
+* light - 15% lighter base color
+* lighter - 30% lighter base color
+* dark - 15% darker base color
+* darker - 30% darker base color
+* complement - uses the SASS function to obtain the complement color
+* invert - inverts the base color
+* left60 - gets the color by adjusting the hue 60 degrees to the left of the existing color
+* left120 - gets the color by adjusting the hue 120 degrees to the left of the existing color
+* right60 - gets the color by adjusting the hue 60 degrees to the right of the existing color
+* right120 - gets the color by adjusting the hue 120 degrees to the right of the existing color
+
+You can use the function in your SASS like so:
+
+```scss
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$colors: ($blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan);
+
+$i: 0;
+@each $c in $colors {
+    $theme: color-wheel($c);
+    $i: $i + 1;
+
+    $i2: 0;
+    @each $l, $v in $theme {
+        $i2: $i2 + 1;
+        .color-#{$i}-#{$i2} {
+            background-color: $v;
+            &::before {
+                content: "#{$v}";
+            }
+        }
+    }
+}
+```
