@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "vite build",
+    "buildDemo": "vite build --config vite.demo.config.ts",
     "scss": "node-sass --watch src -o css",
     "start": "vite"
   },

@@ -1,0 +1,147 @@
+@import "style";
+
+// Generate themes
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+$link-blue: #5fb0e5;
+$white: #fff;
+$dark-blue: #121921;
+$pale-blue: #ecf5fe;
+$dark-blue-lightest: lighten($dark-blue, 70%);
+
+$colors: ($blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan, $link-blue, $white, $dark-blue, $pale-blue, $dark-blue-lightest);
+
+$i: 0;
+@each $c in $colors {
+    $theme: color-wheel($c);
+    $i: $i + 1;
+
+    $i2: 0;
+    @each $l, $v in $theme {
+        $i2: $i2 + 1;
+        .cell-#{$i}-#{$i2} {
+            background-color: $v;
+            height: 50px;
+            display: inline-block;
+
+            &::before {
+                content: "#{calculate-contrast($c,$v)}";
+                //content: "#{$v} #{round(lightness($v))}";
+            }
+        }
+    }
+}
+
+
+$bluetheme: #5fb0e5;
+$covidnineteen: #fff;
+$darktheme: #121921;
+$lighttheme: #ecf5fe;
+$purpletheme: #6f42c1; // purple isn't color safe
+$redtheme: #dc3545; // red isn't color safe
+$socialmedia: lighten(#121921, 70%);
+$whitetheme: #fff;
+$yellowtheme: #ffc107;
+
+
+// $color2: #5fb0e5;
+// $color1: #0D3651;
+
+// $color3: #fff;
+// $color4: #595959;
+
+// $color5: #121921;
+// $color6: #8ca4c0;
+
+// $color7: #ecf5fe;
+// $color8: #084f97;
+
+// $color9: #6f42c1;
+
+
+// $base-color: $color9;
+// $colors: wcag-safe-colors($base-color);
+
+// .wcag-safe-base-colors {
+//     background-color: $base-color;
+//     color: map-get($colors, 'wcag21-aaa-normal-color');
+//     font-size: 12pt;
+// }
+
+
+$base-color: $bluetheme;
+.blue-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $covidnineteen;
+.covid19-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $darktheme;
+.darktheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $lighttheme;
+.lighttheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $purpletheme;
+.purpletheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $redtheme;
+.redtheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $socialmedia;
+.socialmedia-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $whitetheme;
+.whitetheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+$base-color: $yellowtheme;
+.yellowtheme-theme {
+    background-color: $base-color;
+    color: map-get(wcag-safe-colors($base-color), 'wcag21-aaa-normal-color');
+    font-size: 12pt;
+}
+
+// contrast-ratio: "#{calculate-contrast($color1,$color2)}";
+// $backgroundColor: $link-blue;  #5fb0e5
+// $color: $dark-blue;  #121921
+// $headerColor: $dark-blue;
