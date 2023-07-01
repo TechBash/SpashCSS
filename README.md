@@ -38,7 +38,23 @@
 # Welcome to SplashCSS
 We're still in pre-pre-release phase. Check back again soon or feel free to submit feedback.
 
+## Getting Started
+It's pretty easy to get started. You've already found this README which is great. Once you bring the project local, there's only 3 easy steps to get started.
+
+1. Install NPM packages by running `npm i`
+2. Build everything by running `npm run build`
+3. Start the vite server and browse to the URL output by running `npm run start`
+
+That's it. 
+
 ## Building SplashCSS
+
+#### Building SplashCSS
+Instead of building the Demo app or the Distributables individually as outlined below, we can build both at the same time. Well, it won't be concurrently as we're trying not to bloat the packages installed, but run this:
+
+```PowerShell
+npm run build
+```
 
 #### Building the Demo
 The demo page is already pre-built. The purpose of this page is to highlight several of the features of SplashCSS. You can browse the demo page by visiting the `index.html` file in the root. The .css and .js files it accesses are the files contained in the `/demo` folder.
@@ -55,7 +71,7 @@ As with the demo, the distributables are already pre-built. These files are the 
 To re-build the distributables including the CSS and JavaScript, run the following command in the root:
 
 ```PowerShell
-npm run build
+npm run buildProd
 ```
 
 ## Using SplashCSS Functions and Mixins
